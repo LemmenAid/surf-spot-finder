@@ -15,5 +15,13 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 # Open the Google Sheet and get the worksheets
 SHEET = GSPREAD_CLIENT.open('surf_spot_finder')
 
+def get_counties():
+    """
+    Retrieve the list of available counties from the first worksheet
+    """
+    counties_sheet = SHEET.get_worksheet(0)
+    return counties_sheet.row_values(1)
+    
+
 
 
