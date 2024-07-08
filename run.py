@@ -27,7 +27,29 @@ def get_counties():
         print(f"- {county}\n")
    
 
+def select_county(): 
+    """
+    Get user to select a county and display the surf spots for the chosen county.
+    """
+    #Prompt the user to choose a county
+    selected_county = input("Enter the County you want to explore: \n").capitalize()
 
+    # Find the sheet ID of the selected County
+    selected_sheet_id = next((worksheet.id for worksheet in SHEET if worksheet.title == selected_county), None)
+     
+    if selected_sheet_id:
+        # Retrieve the values from the first column of the selected sheet
+        selected_sheet = GSPREAD_CLIENT.open("surf_spot_finder").get_worksheet_by_id(selected_sheet_id)
+        selected_county_surfspots = selected_sheet.col_values(1)
+    
+        # Print the values from the first column
+        print("Here is a list of the available surf spots in this County:\n")
+        for surfspot in selected_county_surfspots:
+            print(f"- {surfspot}\n")
+    else:
+        print(f"Sorry, '{selected_county}' is not a valid county.") 
+        get_counties()
+        select_county()
 
 
 
