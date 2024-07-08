@@ -34,27 +34,52 @@ def get_user_county():
     return input("Enter the County you want to explore: \n").capitalize()
 
 
-def show_spots(selected_county): 
+def show_spots(user_county): 
     """
     Display the surf spots for the chosen county.
     """
        # Find the sheet ID of the selected County
-    selected_sheet_id = next((worksheet.id for worksheet in SHEET if worksheet.title == selected_county), None)
+    selected_sheet_id = next((worksheet.id for worksheet in SHEET if worksheet.title == user_county), None)
      
     if selected_sheet_id:
         # Retrieve the values from the first column of the selected sheet
         selected_sheet = GSPREAD_CLIENT.open("surf_spot_finder").get_worksheet_by_id(selected_sheet_id)
-        selected_county_surfspots = selected_sheet.col_values(1)
+        surf_spot_names = selected_sheet.col_values(1)
+
+        surf_spot_levels = selected_sheet.col_values(2)
+        surf_spot_types = selected_sheet.col_values(3)
+        surf_spot_crowds = selected_sheet.col_values(4)
+        surf_spot_accessibility = selected_sheet.col_values(5)
+
 
         # Print the values from the first column
-        print(f"Here is a list of the available surf spots in County {selected_county}:\n")
-        for surfspot in selected_county_surfspots:
+        print(f"Here is a list of the available surf spots in County {user_county}:\n")
+        for surfspot in surf_spot_names:
             print(f"- {surfspot}\n")
     else:
-        print(f"Sorry, '{selected_county}' is not a valid county.") 
+        print(f"Sorry, '{user_county}' is not a valid county.") 
         get_counties()
         show_spots(get_user_county())
 
+
+def get_user_surfspot():
+    """
+    Prompt the user to choose a surfspot they want to explore.
+    """
+    print("Would you like to know more about one of these spots?")
+    return input("Enter the surfspot you would like to explore: \n").capitalize()
+
+
+def show_spot_info(user_surfspot):
+    # Find the index of the selected surf spot
+        spot_index = surf_spot_names.index(user_surfspot)
+
+        # Display the row data in key-value pairs
+        print(f"\nDetails for {selected_spot}:")
+        print(f"Surf Level: {surf_spot_levels[spot_index]}")
+        print(f"Type: {surf_spot_types[spot_index]}")
+        print(f"Crowd Level: {surf_spot_crowds[spot_index]}")
+        print(f"Accessibility: {surf_spot_accessibility[spot_index]}")
 
 
 
@@ -69,11 +94,18 @@ def main():
     # Display the list of available counties
     get_counties()
     # Ask user to select a county 
-    selected_county = get_user_county()
+    user_county = get_user_county()
     # Display surfspots for chosen County
-    show_spots(selected_county)
-     
+    #show_spots(user_county)
+    show_spots(user_county)
+    # Ask user to select surfspot for more info 
+    user_surfspot = get_user_surfspot()
+    # Print to check
+    print(user_surfspot)
 
+    #show_spot_info(user_surfspot)
+
+    
    
   
 if __name__ == '__main__':
