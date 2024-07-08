@@ -13,30 +13,39 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 
 # Open the Google Sheet and get the worksheets
-SHEET = GSPREAD_CLIENT.open('surf_spot_finder')
+SHEET = GSPREAD_CLIENT.open('surf_spot_finder').worksheets()
+
 
 def get_counties():
     """
-    Retrieve the list of available counties from the first worksheet
+    Retrieve a list of available counties from the surf_spot_finder google sheet
     """
-    counties_sheet = SHEET.get_worksheet(0)
-    return counties_sheet.row_values(1)
+    available_counties = [worksheet.title for worksheet in SHEET]
     
+    print("Here is a list of the available counties:\n")
+    for county in available_counties:
+        print(f"- {county}\n")
+   
+
+
+
+
 
 def main():
+    """
+    Run all program functions
+    """
     print("Welcome to the Irish Surf Spot Finder!\n")
-    print("We want to help you find the best surfspots in Ireland.")
+    print("We want to help you find the best surf spots in Ireland.")
     print("First thing we need to know to help you on your way is in which County you would like to go surfing..\n")
 
     # Display the list of available counties
-    counties = get_counties()
-    print("Here is a list of the available counties:\n")
-    for county in counties:
-        print(f"- {county}\n")
+    get_counties()
+    # Ask to select a county and display surfspots
+    select_county()
+     
 
-    # Prompt the user to choose a county
-    selected_county = input("Enter the County you want to explore: ")
-
+   
   
 if __name__ == '__main__':
     main()
