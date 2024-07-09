@@ -85,7 +85,7 @@ def show_spots(user_county):
     if selected_sheet_id:
         # Retrieve the values from the the selected sheet
         selected_sheet = GSPREAD_CLIENT.open("surf_spot_finder").get_worksheet_by_id(selected_sheet_id)
-        surf_spot_names = selected_sheet.col_values(1)
+        surf_spot_names = selected_sheet.col_values(1)[1:]  # Exclude the first row
 
         # Print the values from the first column
         slow_print(f"\nHere is a list of the available surf spots in County {user_county}:\n")
@@ -131,11 +131,12 @@ def get_user_surfspot(user_county):
         show_spots(get_user_county())
 
 
+
 def main():
     """
     Run all program functions
     """
-    
+    #Welcome message and banner
     welcome()
 
     # Display the list of available counties
@@ -149,6 +150,8 @@ def main():
 
     # Ask user to select surfspot and display the spot info 
     get_user_surfspot(user_county)
+
+
 
   
 if __name__ == '__main__':
