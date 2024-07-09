@@ -115,16 +115,20 @@ def get_user_surfspot(user_county):
         surf_spot_types = selected_sheet.col_values(3)
         surf_spot_crowds = selected_sheet.col_values(4)
         surf_spot_accessibility = selected_sheet.col_values(5)
+        surf_spot_wind = selected_sheet.col_values(6)
+        surf_spot_season = selected_sheet.col_values(7)
             
         # Find the index of the selected surf spot
         spot_index = surf_spot_names.index(selected_spot)
 
         # Display the row data in key-value pairs
         slow_print(f"\nHere are the details for {selected_spot}:\n")
-        slow_print(f"Required surf Level: {surf_spot_levels[spot_index]}")
+        slow_print(f"suitable for surf Level: {surf_spot_levels[spot_index]}")
         slow_print(f"Type of spot: {surf_spot_types[spot_index]} break")
         slow_print(f"Crowd Level: {surf_spot_crowds[spot_index]}")
         slow_print(f"Accessibility: {surf_spot_accessibility[spot_index]}")
+        slow_print(f"Best wind direction: {surf_spot_wind[spot_index]}")
+        slow_print(f"Best season for consistent clean waves: {surf_spot_season[spot_index]}")
     
     else:
         slow_print(f"Sorry, '{selected_spot}' is not a valid surfspot. Please enter one of the available options") 
