@@ -36,7 +36,21 @@ def slow_print(text: str):
         sys.stdout.flush()  # defeat buffering
         time.sleep(random.random() * 0.05)
 
+def welcome():
+    """
+    This function welcomes the user and explains the purpuse of the app.
+    The text is printed slowly, letter by letter.
+    """
+    title_banner()
 
+    welcome_text = """
+Welcome to the Surf Spot Finder!
+    
+We want to help you find the best surf spots in Ireland.
+    
+First thing we need to know to help you on your way is in which County you would like to go surfing..\n"""
+
+    slow_print(welcome_text)
 
 def get_counties():
     """
