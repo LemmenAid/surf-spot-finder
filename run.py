@@ -71,8 +71,8 @@ def get_user_county():
     """
     Prompt the user to choose a County they want to go surfing in.
     """
-    slow_print("Would you like to know the available surfspots for one of these Counties?")
-    return input("\nEnter the County you would like to explore: \n").capitalize()
+    slow_print("\nWould you like to know the available surfspots for one of these Counties?")
+    return input("Enter the County you would like to explore: \n").capitalize()
 
 
 def show_spots(user_county): 
@@ -101,7 +101,7 @@ def get_user_surfspot(user_county):
     """
     Prompt the user to choose a surfspot they want to explore and display the spot info.
     """
-    slow_print("\nWould you like to know more about one of these spots?")
+    slow_print("\nWould you like to know a little bit more about one of these spots?")
     selected_spot = input("Enter the surfspot you would like to explore: \n").capitalize()
 
     if selected_spot:
