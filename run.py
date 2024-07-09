@@ -26,6 +26,16 @@ def title_banner():
     title_art = pyfiglet.figlet_format(title_text, font='larry3d', justify='center')
     print(title_art)
 
+def slow_print(text: str):
+    """
+    Prints the text letter by letter. Speed of the print can be adjusted.
+    https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
+    """
+    for word in text + '\n':
+        sys.stdout.write(word)
+        sys.stdout.flush()  # defeat buffering
+        time.sleep(random.random() * 0.05)
+
 
 
 def get_counties():
