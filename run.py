@@ -2,7 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 import pyfiglet
 import time
-from time import sleep
+# from time import sleep
 import sys
 import random
 
@@ -21,46 +21,49 @@ SHEET = GSPREAD_CLIENT.open('surf_spot_finder').worksheets()
 
 
 def title_banner():
-
+    """Display the title with ascii art."""
     title_text = 'Surf Spot Finder!'
-    title_art = pyfiglet.figlet_format(title_text, font='larry3d', justify='center')
+    title_art = pyfiglet.figlet_format(
+        title_text,
+        font='larry3d',
+        justify='center')
     print(title_art)
 
+
 def slow_print(text: str):
-    """
-    Prints the text letter by letter. Speed of the print can be adjusted.
-    https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python
-    """
+    """Print text letter by letter. Speed of the print can be adjusted."""
     for word in text + '\n':
         sys.stdout.write(word)
         sys.stdout.flush()  # defeat buffering
         time.sleep(random.random() * 0.05)
 
+
 def welcome():
     """
-    This function welcomes the user and explains the purpuse of the app.
-    The text is printed slowly, letter by letter.
+    Welcome the user and explain the purpuse of the app.
+
+    Text is printed slowly, letter by letter.
     """
     title_banner()
 
-    welcome_text = """
-Welcome to the Surf Spot Finder!
-    
-We want to help you find the best surf spots in Ireland.
-    
-First thing we need to know to help you on your way is in which County you would like to go surfing..\n"""
+    welcome_text = (
+        "Welcome to the Surf Spot Finder!\n\n"
+        "We want to help you find the best surf spots in Ireland.\n\n"
+        "First thing we need to know to help you on your way is "
+        "in which County you would like to go surfing..\n"
+    )
 
     slow_print(welcome_text)
 
+
 def get_counties():
-    """
-    Retrieve a list of available counties from the surf_spot_finder google sheet
-    and print them to the terminal.
-    """
+    """Retrieve list of counties from google sheet and print them."""
     available_counties = [worksheet.title for worksheet in SHEET]
-    
-    counties_text = """
-Here is a list of the available counties:\n"""
+
+    counties_text = (
+        "Here is a list of the available counties:\n"
+    )
+
     slow_print(counties_text)
 
     for county in available_counties:
@@ -68,48 +71,70 @@ Here is a list of the available counties:\n"""
 
 
 def get_user_county():
-    """
-    Prompt the user to choose a County they want to go surfing in.
-    """
-    slow_print("\nWould you like to know the available surfspots for one of these Counties?")
+    """Ask user to choose a County they want to go surfing in."""
+    slow_print(
+        "\nWould you like to know the available surfspots "
+        "for one of these Counties?"
+    )
     return input("Enter the County you would like to explore: \n").capitalize()
 
 
-def show_spots(user_county): 
-    """
-    Display the surf spots based on the chosen county by user.
-    """
+def show_spots(user_county):
+    """Display the surf spots based on the chosen county by user."""
     # retrieve the sheet ID of the selected County
-    selected_sheet_id = next((worksheet.id for worksheet in SHEET if worksheet.title == user_county), None)
-     
+    selected_sheet_id = (
+        next(
+            (worksheet.id for worksheet in SHEET if worksheet.title == user_county),
+            None
+            )
+    )
+
     if selected_sheet_id:
         # Retrieve the values from the the selected sheet
-        selected_sheet = GSPREAD_CLIENT.open("surf_spot_finder").get_worksheet_by_id(selected_sheet_id)
-        surf_spot_names = selected_sheet.col_values(1)[1:]  # Exclude the first row
+        selected_sheet = GSPREAD_CLIENT.open(
+            "surf_spot_finder").get_worksheet_by_id(
+            selected_sheet_id
+        )
+        # Exclude the first row
+        surf_spot_names = selected_sheet.col_values(1)[1:]
 
         # Print the values from the first column
-        slow_print(f"\nHere is a list of the available surf spots in County {user_county}:\n")
+        slow_print(
+            f"\nHere's a list of the available surf spots "
+            f"in County {user_county}:\n"
+        )
         for surfspot in surf_spot_names:
             slow_print(f" - {surfspot}")
     else:
-        slow_print(f"\nSorry, '{user_county}' is not a valid county.") 
+        slow_print(f"\nSorry, '{user_county}' is not a valid county.")
         get_counties()
         show_spots(get_user_county())
 
 
 def get_user_surfspot(user_county):
-    """
-    Prompt the user to choose a surfspot they want to explore and display the spot info.
-    """
-    slow_print("\nWould you like to know a little bit more about one of these spots?")
-    selected_spot = input("Enter the surfspot you would like to explore: \n").capitalize()
+    """Ask user to choose surfspot and display info."""
+    slow_print(
+        "\nWould you like to know a little bit more "
+        "about one of these spots?"
+    )
+    selected_spot = input(
+        "Enter the surfspot you would like to explore: \n"
+    ).capitalize()
 
     if selected_spot:
         # Retrieve the sheet ID of the selected County
-        selected_sheet_id = next((worksheet.id for worksheet in SHEET if worksheet.title == user_county), None)
-     
+        selected_sheet_id = (
+            next(
+                (worksheet.id for worksheet in SHEET if worksheet.title == user_county),
+                None
+            )
+        )
+
         # Retrieve the values from the the selected sheet
-        selected_sheet = GSPREAD_CLIENT.open("surf_spot_finder").get_worksheet_by_id(selected_sheet_id)
+        selected_sheet = GSPREAD_CLIENT.open(
+            "surf_spot_finder").get_worksheet_by_id(
+            selected_sheet_id
+        )
         surf_spot_names = selected_sheet.col_values(1)
         surf_spot_levels = selected_sheet.col_values(2)
         surf_spot_types = selected_sheet.col_values(3)
@@ -117,7 +142,7 @@ def get_user_surfspot(user_county):
         surf_spot_accessibility = selected_sheet.col_values(5)
         surf_spot_wind = selected_sheet.col_values(6)
         surf_spot_season = selected_sheet.col_values(7)
-            
+
         # Find the index of the selected surf spot
         spot_index = surf_spot_names.index(selected_spot)
 
@@ -128,36 +153,60 @@ def get_user_surfspot(user_county):
         slow_print(f"Crowd Level: {surf_spot_crowds[spot_index]}")
         slow_print(f"Accessibility: {surf_spot_accessibility[spot_index]}")
         slow_print(f"Best wind direction: {surf_spot_wind[spot_index]}")
-        slow_print(f"Best season for consistent clean waves: {surf_spot_season[spot_index]}")
-    
+        slow_print(
+            f"Best season for consistent "
+            f"clean waves: {surf_spot_season[spot_index]}"
+        )
+
+        restart_finder()
+
     else:
-        slow_print(f"Sorry, '{selected_spot}' is not a valid surfspot. Please enter one of the available options") 
+        slow_print(
+            f"Sorry, '{selected_spot}' is not a valid surfspot."
+            "Please enter one of the available options."
+        )
         show_spots(get_user_county())
 
 
+def restart_finder():
+    """
+    Ask user if they want to choose a different option.
+
+    If Yes, the app restarts; if No, the app ends.
+    """
+    while True:
+        restart = input(
+            "\nDo you want to choose a different option? Y or N:\n"
+        ).upper().strip()
+        if restart == "Y":
+            clear_terminal()
+            main()
+            break
+        elif restart == "N":
+            print("Goodbye!")
+            break
+        else:
+            # Direct feedback without raising an exception
+            print("Please enter Y or N.")
+
 
 def main():
-    """
-    Run all program functions
-    """
-    #Welcome message and banner
+    """Run all program functions."""
+    # Welcome message and banner
     welcome()
 
     # Display the list of available counties
     get_counties()
-   
-    # Ask user to select a county 
+
+    # Ask user to select a county
     user_county = get_user_county()
-    
+
     # Display surfspots for chosen County
     show_spots(user_county)
 
-    # Ask user to select surfspot and display the spot info 
+    # Ask user to select surfspot and display the spot info
     get_user_surfspot(user_county)
 
 
-
-  
 if __name__ == '__main__':
     main()
-
