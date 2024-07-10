@@ -49,8 +49,7 @@ def welcome():
     welcome_text = (
         "Welcome to the Surf Spot Finder!\n\n"
         "We want to help you find the best surf spots in Ireland.\n\n"
-        "First thing we need to know to help you on your way is "
-        "in which County you would like to go surfing..\n"
+        "We just need to know in which County you would like to go surfing..\n"
     )
 
     slow_print(welcome_text)
@@ -196,7 +195,8 @@ def restart_from_spots(user_county):
         restart_from_spots(user_county)
 
     elif restart == "N":
-        print("Have a great surf trip!")
+        print("\nHave a great surf trip!\n")
+        goodbye()
 
     else:
         # Direct feedback without raising an exception
@@ -207,6 +207,16 @@ def clear_terminal():
     """Clear the terminal."""
     # from: stackoverflow.com/questions/2084508
     os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def goodbye():
+    """Display the title with ascii art."""
+    title_text = "Surf is Up!"
+    title_art = pyfiglet.figlet_format(
+        title_text,
+        font='larry3d',
+        justify='center')
+    print(title_art)
 
 
 def main():
