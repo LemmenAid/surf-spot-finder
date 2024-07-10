@@ -179,8 +179,11 @@ def restart_from_spots(user_county):
     }
 
     restart = input(
-        "\nWould you like to choose another spot in this County? Y or N:\n"
-        ).upper().strip()
+        "\nWould you like to choose another spot in this County?\n\n"
+        "- Enter Y for yes\n"
+        "- N for no\n"
+        "- C to choose a different County.\n"
+    ).upper().strip()
     if restart == "Y":
         user_county = current_state['user_county']
         clear_terminal()
@@ -197,6 +200,14 @@ def restart_from_spots(user_county):
     elif restart == "N":
         print("\nHave a great surf trip!\n")
         goodbye()
+
+    elif restart == "C":
+        # Restart from Counties
+        get_counties()
+        get_user_county()
+        show_spots(user_county)
+        get_user_surfspot(user_county)
+        restart_from_spots(user_county)
 
     else:
         # Direct feedback without raising an exception
