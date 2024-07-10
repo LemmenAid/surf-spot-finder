@@ -122,7 +122,7 @@ def get_user_surfspot(user_county):
     selected_spot = input(
         "Enter the surfspot you would like to explore: \n"
     ).capitalize()
-    
+
     # Retrieve the sheet ID of the selected County
     selected_sheet_id = (
         next(
@@ -138,7 +138,7 @@ def get_user_surfspot(user_county):
     )
     surf_spot_names = selected_sheet.col_values(1)
 
-    if selected_spot in surf_spot_names:    
+    if selected_spot in surf_spot_names:
         # Find the index of the selected surf spot
         spot_index = surf_spot_names.index(selected_spot)
 
@@ -194,10 +194,10 @@ def restart_from_spots(user_county):
 
         # Restart again to give option to choose other spot
         restart_from_spots(user_county)
-            
+
     elif restart == "N":
         print("Have a great surf trip!")
-        
+
     else:
         # Direct feedback without raising an exception
         print("Please enter Y or N.")
@@ -226,6 +226,7 @@ def main():
     # Ask user to select surfspot and display the spot info
     get_user_surfspot(user_county)
 
+    # Ask user to choose different surf spot
     restart_from_spots(user_county)
 
 
