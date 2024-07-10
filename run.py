@@ -73,8 +73,7 @@ def get_counties():
 def get_user_county():
     """Ask user to choose a County they want to go surfing in."""
     slow_print(
-        "\nWould you like to know the available surfspots "
-        "for one of these Counties?"
+        "\nAbout which County would you like to know more?"
     )
     return input("Enter the County you would like to explore: \n").capitalize()
 
@@ -106,7 +105,7 @@ def show_spots(user_county):
         for surfspot in surf_spot_names:
             slow_print(f" - {surfspot}")
     else:
-        slow_print(f"\nSorry, '{user_county}' is not a valid county.")
+        slow_print(f"\nSorry, '{user_county}' is not a valid County.")
         get_counties()
         show_spots(get_user_county())
 
@@ -120,31 +119,32 @@ def get_user_surfspot(user_county):
     selected_spot = input(
         "Enter the surfspot you would like to explore: \n"
     ).capitalize()
+    
+    # Retrieve the sheet ID of the selected County
+    selected_sheet_id = (
+        next(
+            (worksheet.id for worksheet in
+             SHEET if worksheet.title == user_county), None
+            )
+    )
 
-    if selected_spot:
-        # Retrieve the sheet ID of the selected County
-        selected_sheet_id = (
-            next(
-                (worksheet.id for worksheet in
-                 SHEET if worksheet.title == user_county), None
-                )
-        )
+    # Retrieve the values from the the selected sheet
+    selected_sheet = GSPREAD_CLIENT.open(
+        "surf_spot_finder").get_worksheet_by_id(
+        selected_sheet_id
+    )
+    surf_spot_names = selected_sheet.col_values(1)
 
-        # Retrieve the values from the the selected sheet
-        selected_sheet = GSPREAD_CLIENT.open(
-            "surf_spot_finder").get_worksheet_by_id(
-            selected_sheet_id
-        )
-        surf_spot_names = selected_sheet.col_values(1)
+    if selected_spot in surf_spot_names:    
+        # Find the index of the selected surf spot
+        spot_index = surf_spot_names.index(selected_spot)
+
         surf_spot_levels = selected_sheet.col_values(2)
         surf_spot_types = selected_sheet.col_values(3)
         surf_spot_crowds = selected_sheet.col_values(4)
         surf_spot_accessibility = selected_sheet.col_values(5)
         surf_spot_wind = selected_sheet.col_values(6)
         surf_spot_season = selected_sheet.col_values(7)
-
-        # Find the index of the selected surf spot
-        spot_index = surf_spot_names.index(selected_spot)
 
         # Display the row data in key-value pairs
         slow_print(f"\nHere are the details for {selected_spot}:\n")
@@ -160,32 +160,44 @@ def get_user_surfspot(user_county):
 
     else:
         slow_print(
-            f"Sorry, '{selected_spot}' is not a valid surfspot."
+            f"'{selected_spot}' is not a valid surfspot. "
             "Please enter one of the available options."
         )
-        show_spots(get_user_county())
+        get_user_surfspot(user_county)
 
 
-def restart_app():
+def restart_from_spots(user_county):
     """
     Ask user if they want to choose a different option.
 
     If Yes, the app restarts; if No, the app ends.
     """
-    while True:
-        restart = input(
-            "\nWould you like to go back to the start? Y or N:\n"
+    current_state = {
+        'user_county': user_county
+    }
+
+    restart = input(
+        "\nWould you like to choose another spot in this County? Y or N:\n"
         ).upper().strip()
-        if restart == "Y":
-            clear_terminal()
-            main()
-            break
-        elif restart == "N":
-            print("Goodbye!")
-            break
-        else:
-            # Direct feedback without raising an exception
-            print("Please enter Y or N.")
+    if restart == "Y":
+        user_county = current_state['user_county']
+        clear_terminal()
+
+        # Display surfspots for chosen County
+        show_spots(user_county)
+
+        # Ask user to select surfspot and display the spot info
+        get_user_surfspot(user_county)
+
+        # Restart again to give option to choose other spot
+        restart_from_spots(user_county)
+            
+    elif restart == "N":
+        print("Have a great surf trip!")
+        
+    else:
+        # Direct feedback without raising an exception
+        print("Please enter Y or N.")
 
 
 def clear_terminal():
@@ -211,7 +223,7 @@ def main():
     # Ask user to select surfspot and display the spot info
     get_user_surfspot(user_county)
 
-    restart_app()
+    restart_from_spots(user_county)
 
 
 if __name__ == '__main__':
