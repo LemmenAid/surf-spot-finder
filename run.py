@@ -97,6 +97,9 @@ def show_spots(user_county):
         # Exclude the first row
         surf_spot_names = selected_sheet.col_values(1)[1:]
 
+        # clear the terminal for better overview
+        clear_terminal()
+
         # Print the values from the first column
         slow_print(
             f"\nHere's a list of the available surf spots "
