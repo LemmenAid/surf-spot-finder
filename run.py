@@ -2,9 +2,9 @@ import gspread
 from google.oauth2.service_account import Credentials
 import pyfiglet
 import time
-# from time import sleep
 import sys
 import random
+import os
 
 # Set up Google Sheets API credentials
 SCOPE = [
@@ -158,8 +158,6 @@ def get_user_surfspot(user_county):
             f"clean waves: {surf_spot_season[spot_index]}"
         )
 
-        restart_finder()
-
     else:
         slow_print(
             f"Sorry, '{selected_spot}' is not a valid surfspot."
@@ -168,7 +166,7 @@ def get_user_surfspot(user_county):
         show_spots(get_user_county())
 
 
-def restart_finder():
+def restart_app():
     """
     Ask user if they want to choose a different option.
 
@@ -176,7 +174,7 @@ def restart_finder():
     """
     while True:
         restart = input(
-            "\nDo you want to choose a different option? Y or N:\n"
+            "\nWould you like to go back to the start? Y or N:\n"
         ).upper().strip()
         if restart == "Y":
             clear_terminal()
@@ -188,6 +186,12 @@ def restart_finder():
         else:
             # Direct feedback without raising an exception
             print("Please enter Y or N.")
+
+
+def clear_terminal():
+    """Clear the terminal."""
+    # from: stackoverflow.com/questions/2084508
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def main():
@@ -206,6 +210,8 @@ def main():
 
     # Ask user to select surfspot and display the spot info
     get_user_surfspot(user_county)
+
+    restart_app()
 
 
 if __name__ == '__main__':
