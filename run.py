@@ -84,8 +84,8 @@ def show_spots(user_county):
     # retrieve the sheet ID of the selected County
     selected_sheet_id = (
         next(
-            (worksheet.id for worksheet in SHEET if worksheet.title == user_county),
-            None
+            (worksheet.id for worksheet in
+             SHEET if worksheet.title == user_county), None
             )
     )
 
@@ -125,9 +125,9 @@ def get_user_surfspot(user_county):
         # Retrieve the sheet ID of the selected County
         selected_sheet_id = (
             next(
-                (worksheet.id for worksheet in SHEET if worksheet.title == user_county),
-                None
-            )
+                (worksheet.id for worksheet in
+                 SHEET if worksheet.title == user_county), None
+                )
         )
 
         # Retrieve the values from the the selected sheet
@@ -148,7 +148,7 @@ def get_user_surfspot(user_county):
 
         # Display the row data in key-value pairs
         slow_print(f"\nHere are the details for {selected_spot}:\n")
-        slow_print(f"suitable for surf Level: {surf_spot_levels[spot_index]}")
+        slow_print(f"Suitable for surf Level: {surf_spot_levels[spot_index]}")
         slow_print(f"Type of spot: {surf_spot_types[spot_index]} break")
         slow_print(f"Crowd Level: {surf_spot_crowds[spot_index]}")
         slow_print(f"Accessibility: {surf_spot_accessibility[spot_index]}")
