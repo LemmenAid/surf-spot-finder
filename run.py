@@ -115,8 +115,7 @@ def show_spots(user_county):
 def get_user_surfspot(user_county):
     """Ask user to choose surfspot and display info."""
     slow_print(
-        "\nWould you like to know a little bit more "
-        "about one of these spots?"
+        "\nAbout which spot would you like some more information?"
     )
 
     while True:
