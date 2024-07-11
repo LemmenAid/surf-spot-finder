@@ -129,9 +129,10 @@ def get_user_surfspot(user_county):
                 "surf_spot_finder"
             ).get_worksheet_by_id(
                 next(
-                    (worksheet.id for worksheet in SHEET if worksheet.title == user_county),
+                    (worksheet.id for worksheet in SHEET
+                     if worksheet.title == user_county),
                     None
-                )
+                    )
             )
             surf_spot_names = selected_sheet.col_values(1)
         except gspread.exceptions.SpreadsheetNotFound:
@@ -153,16 +154,16 @@ def get_user_surfspot(user_county):
             surf_spot_season = selected_sheet.col_values(7)
 
             # Display the row data in key-value pairs
-            slow_print(f"\nHere are the details for {selected_spot}:\n")
-            slow_print(f"Suitable for surf Level: {surf_spot_levels[spot_index]}")
+            slow_print(f"\nHere are the details for "
+                       f"{selected_spot}:\n")
+            slow_print(f"Surf Level: {surf_spot_levels[spot_index]}")
             slow_print(f"Type of spot: {surf_spot_types[spot_index]} break")
             slow_print(f"Crowd Level: {surf_spot_crowds[spot_index]}")
             slow_print(f"Accessibility: {surf_spot_accessibility[spot_index]}")
             slow_print(f"Best wind direction: {surf_spot_wind[spot_index]}")
             slow_print(
                 f"Best season for consistent "
-                f"clean waves: {surf_spot_season[spot_index]}"
-            )
+                f"clean waves: {surf_spot_season[spot_index]}")
             break
 
         else:
@@ -198,7 +199,7 @@ def program_continue_options(user_county):
             show_spots(user_county)
             get_user_surfspot(user_county)
             program_continue_options(user_county)
-            break # exit the loop
+            break
 
         elif restart == "N":
             print("\nHave a great surf trip!\n")
@@ -217,7 +218,7 @@ def program_continue_options(user_county):
 
         else:
             # Direct feedback without raising an exception
-            print(f"Sorry, {restart} is an invalid input! Please enter Y, N or C.")
+            print(f"{restart} is an invalid input! Please enter Y, N or C.")
             continue
 
 
