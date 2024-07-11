@@ -178,40 +178,49 @@ def restart_from_spots(user_county):
         'user_county': user_county
     }
 
-    restart = input(
-        "\nWould you like to choose another spot in this County?\n\n"
-        "- Enter Y for yes\n"
-        "- N for no\n"
-        "- C to choose a different County.\n"
-    ).upper().strip()
-    if restart == "Y":
-        user_county = current_state['user_county']
-        clear_terminal()
+    while True:
+        restart = input(
+            "\nWould you like to choose another spot in this County?\n\n"
+            "- Enter Y for yes\n"
+            "- N for no\n"
+            "- C to choose a different County.\n"
+        ).upper().strip()
 
-        # Display surfspots for chosen County
-        show_spots(user_county)
+        if restart == "Y":
+            user_county = current_state['user_county']
+            clear_terminal()
 
-        # Ask user to select surfspot and display the spot info
-        get_user_surfspot(user_county)
+            # Display surfspots for chosen County
+            show_spots(user_county)
 
-        # Restart again to give option to choose other spot
-        restart_from_spots(user_county)
+            # Ask user to select surfspot and display the spot info
+            get_user_surfspot(user_county)
 
-    elif restart == "N":
-        print("\nHave a great surf trip!\n")
-        goodbye()
+            # Restart again to give option to choose other spot
+            restart_from_spots(user_county)
+            break # exit the loop
 
-    elif restart == "C":
-        # Restart from Counties
-        get_counties()
-        get_user_county()
-        show_spots(user_county)
-        get_user_surfspot(user_county)
-        restart_from_spots(user_county)
+        elif restart == "N":
+            print("\nHave a great surf trip!\n")
+            goodbye()
+            break
 
-    else:
-        # Direct feedback without raising an exception
-        print("Please enter Y or N.")
+        elif restart == "C":
+            # Restart from Counties
+            clear_terminal()
+            get_counties()
+            get_user_county()
+            show_spots(user_county)
+            get_user_surfspot(user_county)
+            restart_from_spots(user_county)
+            break
+
+        else:
+            # Direct feedback without raising an exception
+            print(f"Sorry, {restart} is an invalid input! Please enter Y, N or C.")
+            continue
+    
+
 
 
 def clear_terminal():
