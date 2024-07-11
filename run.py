@@ -120,7 +120,7 @@ def get_user_surfspot(user_county):
 
     while True:
         selected_spot = input(
-            "Enter the surfspot you would like to explore: \n"
+            "Enter the surfspot you would like to explore:\n"
         ).capitalize()
 
         # Retrieve the values from the selected sheet
