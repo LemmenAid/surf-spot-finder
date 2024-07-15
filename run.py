@@ -117,30 +117,29 @@ def get_user_surfspot(user_county):
     slow_print(
         "\nAbout which spot would you like some more information?"
     )
+    # Retrieve the values from the selected sheet
+    try:
+        selected_sheet = GSPREAD_CLIENT.open(
+            "surf_spot_finder"
+        ).get_worksheet_by_id(
+            next(
+                (worksheet.id for worksheet in SHEET
+                 if worksheet.title == user_county),
+                None
+                )
+        )
+        surf_spot_names = selected_sheet.col_values(1)
+    except gspread.exceptions.SpreadsheetNotFound:
+        slow_print("Error: Spreadsheet 'surf_spot_finder' not found.")
+        return
+    except gspread.exceptions.WorksheetNotFound:
+        slow_print(f"Error: Worksheet for '{user_county}' not found.")
+        return
 
     while True:
         selected_spot = input(
             "Enter the surfspot you would like to explore:\n"
         ).capitalize().strip()
-
-        # Retrieve the values from the selected sheet
-        try:
-            selected_sheet = GSPREAD_CLIENT.open(
-                "surf_spot_finder"
-            ).get_worksheet_by_id(
-                next(
-                    (worksheet.id for worksheet in SHEET
-                     if worksheet.title == user_county),
-                    None
-                    )
-            )
-            surf_spot_names = selected_sheet.col_values(1)
-        except gspread.exceptions.SpreadsheetNotFound:
-            slow_print("Error: Spreadsheet 'surf_spot_finder' not found.")
-            return
-        except gspread.exceptions.WorksheetNotFound:
-            slow_print(f"Error: Worksheet for '{user_county}' not found.")
-            return
 
         if selected_spot in surf_spot_names:
             # Find the index of the selected surf spot

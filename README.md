@@ -235,15 +235,16 @@ I have used various resources to help me with figuring out how to create the Sur
 
 * [Stack overflow](https://stackoverflow.com/)
 * [Pep Style Guide](https://peps.python.org/pep-0008/)
+* [W3Schools](https://www.w3schools.com/)
+* [The Hitchhiker's Guide to Python](https://docs.python-guide.org/writing/style/)
 * [Real Python - for quick tutorials on several subjects](https://realpython.com/)
 * [Real Python - Name-Main](https://realpython.com/if-name-main-python/)
 * [Real Python - While loops](https://realpython.com/python-while-loop/)
 * [Pypi - ASCII title banner](https://pypi.org/project/pyfiglet/)
 * [Stack Overflow - Slow Printing](https://stackoverflow.com/questions/15375368/slow-word-by-word-terminal-printing-in-python)
 * [Stack Overflow - clear terminal](https://stackoverflow.com/questions/2084508/clear-the-terminal-in-python)
-* [W3Schools](https://www.w3schools.com/)
+* [W3Schools - strip()](https://www.w3schools.com/python/ref_string_strip.asp)
 * [Tripleten - best practices](https://tripleten.com/blog/posts/python-best-practices)
-* [The Hitchhiker's Guide to Python](https://docs.python-guide.org/writing/style/)
 
 * Code Institute Slack Channel
 
