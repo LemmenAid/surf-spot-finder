@@ -216,11 +216,7 @@ def program_continue_options(user_county, available_counties, surf_spots):
         elif restart == "C":
             clear_terminal()
             # Restart from Counties
-            available_counties = get_counties()
-            new_user_county = get_user_county(available_counties)
-            surf_spots = show_spots(new_user_county)
-            get_user_surfspot(new_user_county, surf_spots)
-            program_continue_options(new_user_county, available_counties, surf_spots)
+            main(show_welcome_message=False)
             break
 
         else:
@@ -245,27 +241,38 @@ def goodbye():
     print(title_art)
 
 
-def main():
-    """Run all program functions."""
-    # Welcome message and banner
-    welcome()
+def main(show_welcome_message=True):
+    """
+    Run all program functions.
+    Program restarts without welcome message.
+    """
+    if show_welcome_message:
+        # Welcome message and banner
+        welcome()
 
-    # Display the list of available counties
-    get_counties()
-    available_counties = get_counties()
+        # Display the list of available counties
+        get_counties()
+        available_counties = get_counties()
 
-    # Ask user to select a county
-    user_county = get_user_county(available_counties)
+        # Ask user to select a county
+        user_county = get_user_county(available_counties)
 
-    # Display surfspots for chosen County
-    surf_spots = show_spots(user_county)
+        # Display surfspots for chosen County
+        surf_spots = show_spots(user_county)
 
-    # Ask user to select surfspot and display the spot info
-    get_user_surfspot(user_county, surf_spots)
+        # Ask user to select surfspot and display the spot info
+        get_user_surfspot(user_county, surf_spots)
 
-    # Ask user to choose different surf spot
-    program_continue_options(user_county, available_counties, surf_spots)
-
+        # Ask user to choose different surf spot
+        program_continue_options(user_county, available_counties, surf_spots)
+    else:
+        # Restart from Counties
+        get_counties()
+        available_counties = get_counties()
+        user_county = get_user_county(available_counties)
+        surf_spots = show_spots(user_county)
+        get_user_surfspot(user_county, surf_spots)
+        program_continue_options(user_county, available_counties, surf_spots)
 
 if __name__ == '__main__':
     main()
