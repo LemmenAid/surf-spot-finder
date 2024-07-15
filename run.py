@@ -132,7 +132,7 @@ def show_spots(user_county):
 
 def get_user_surfspot(user_county, surf_spots):
     """Ask user to choose surfspot and display info."""
-    slow_print(
+    print(
         "\nAbout which spot would you like some more information?"
     )
     # Retrieve the values from the selected sheet
@@ -145,7 +145,7 @@ def get_user_surfspot(user_county, surf_spots):
                 None
                 )
         )
-    
+
     while True:
         selected_spot = input(
             "Enter the surfspot you would like to explore:\n"
@@ -155,12 +155,12 @@ def get_user_surfspot(user_county, surf_spots):
             # Find the index of the selected surf spot
             spot_index = surf_spots.index(selected_spot)
 
-            surf_spot_levels = selected_sheet.col_values(2)
-            surf_spot_types = selected_sheet.col_values(3)
-            surf_spot_crowds = selected_sheet.col_values(4)
-            surf_spot_accessibility = selected_sheet.col_values(5)
-            surf_spot_wind = selected_sheet.col_values(6)
-            surf_spot_season = selected_sheet.col_values(7)
+            surf_spot_levels = selected_sheet.col_values(2)[1:]
+            surf_spot_types = selected_sheet.col_values(3)[1:]
+            surf_spot_crowds = selected_sheet.col_values(4)[1:]
+            surf_spot_accessibility = selected_sheet.col_values(5)[1:]
+            surf_spot_wind = selected_sheet.col_values(6)[1:]
+            surf_spot_season = selected_sheet.col_values(7)[1:]
 
             # Display the row data in key-value pairs
             slow_print(f"\nHere are the details for "

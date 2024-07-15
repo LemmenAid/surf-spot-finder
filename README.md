@@ -117,6 +117,7 @@ play again or choose a different quiz.
 ### Future Implementations
 
 * In the future, I could implement the user name usage and favorite surf spots tracking functionality.
+* In the future I would like to add more information to the database, and cover all (coastal) Counties.
 
 *** 
 
