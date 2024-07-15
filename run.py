@@ -74,7 +74,7 @@ def get_user_county():
     slow_print(
         "\nAbout which County would you like to know more?"
     )
-    return input("Enter the County you would like to explore: \n").capitalize()
+    return input("Enter the County you would like to explore: \n").capitalize().strip()
 
 
 def show_spots(user_county):
@@ -121,7 +121,7 @@ def get_user_surfspot(user_county):
     while True:
         selected_spot = input(
             "Enter the surfspot you would like to explore:\n"
-        ).capitalize()
+        ).capitalize().strip()
 
         # Retrieve the values from the selected sheet
         try:
