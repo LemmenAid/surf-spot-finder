@@ -183,7 +183,7 @@ def get_user_surfspot(user_county, surf_spots):
             continue
 
 
-def program_continue_options(user_county, available_counties):
+def program_continue_options(user_county, available_counties, surf_spots):
     """
     Ask user how they want to continue in program.
     """
@@ -204,8 +204,8 @@ def program_continue_options(user_county, available_counties):
             clear_terminal()
             # Restart from surf spots
             show_spots(user_county)
-            get_user_surfspot(user_county)
-            program_continue_options(user_county)
+            get_user_surfspot(user_county, surf_spots)
+            program_continue_options(user_county, available_counties, surf_spots)
             break
 
         elif restart == "N":
@@ -216,11 +216,11 @@ def program_continue_options(user_county, available_counties):
         elif restart == "C":
             clear_terminal()
             # Restart from Counties
-            get_counties()
+            available_counties = get_counties()
             new_user_county = get_user_county(available_counties)
-            show_spots(new_user_county)
-            get_user_surfspot(new_user_county)
-            program_continue_options(new_user_county)
+            surf_spots = show_spots(new_user_county)
+            get_user_surfspot(new_user_county, surf_spots)
+            program_continue_options(new_user_county, available_counties, surf_spots)
             break
 
         else:
@@ -264,7 +264,7 @@ def main():
     get_user_surfspot(user_county, surf_spots)
 
     # Ask user to choose different surf spot
-    program_continue_options(user_county)
+    program_continue_options(user_county, available_counties, surf_spots)
 
 
 if __name__ == '__main__':
