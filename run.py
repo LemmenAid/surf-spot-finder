@@ -58,23 +58,28 @@ def welcome():
 def get_counties():
     """Retrieve list of counties from google sheet and print them."""
     available_counties = [worksheet.title for worksheet in SHEET]
+    return available_counties
 
+
+def get_user_county(available_counties):
+    """Ask user to choose a County they want to go surfing in."""
+    
     counties_text = (
         "Here is a list of the available counties:\n"
     )
-
     slow_print(counties_text)
 
     for county in available_counties:
-        slow_print(f" - {county}")
+        slow_print(f" - {county}\n")
 
-
-def get_user_county():
-    """Ask user to choose a County they want to go surfing in."""
-    slow_print(
-        "\nAbout which County would you like to know more?"
-    )
-    return input("Enter the County you would like to explore: \n").capitalize().strip()
+    """Prompt the user to choose a county and validate the input."""
+    while True:
+        user_county = input("Enter the County you want to explore: ").capitalize().strip()
+        if user_county in available_counties:
+            return user_county
+        else:
+            slow_print(f"Sorry, '{user_county}' is not a valid county.")
+            continue
 
 
 def show_spots(user_county):
@@ -173,11 +178,9 @@ def get_user_surfspot(user_county):
             continue
 
 
-def program_continue_options(user_county):
+def program_continue_options(user_county, available_counties):
     """
-    Ask user if they want to choose a different option.
-
-    If Yes, the app restarts; if No, the app ends.
+    Ask user how they want to continue in program.
     """
     current_state = {
         'user_county': user_county
@@ -209,7 +212,7 @@ def program_continue_options(user_county):
             clear_terminal()
             # Restart from Counties
             get_counties()
-            new_user_county = get_user_county()
+            new_user_county = get_user_county(available_counties)
             show_spots(new_user_county)
             get_user_surfspot(new_user_county)
             program_continue_options(new_user_county)
@@ -244,9 +247,10 @@ def main():
 
     # Display the list of available counties
     get_counties()
+    available_counties = get_counties()
 
     # Ask user to select a county
-    user_county = get_user_county()
+    user_county = get_user_county(available_counties)
 
     # Display surfspots for chosen County
     show_spots(user_county)
