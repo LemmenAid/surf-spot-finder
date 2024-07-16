@@ -125,7 +125,7 @@ def show_spots(user_county):
         return surf_spot_names
 
     else:
-        #slow_print(f"\nSorry, '{user_county}' is not a valid County.")
+        # slow_print(f"\nSorry, '{user_county}' is not a valid County.")
         get_counties()
         show_spots(get_user_county())
         # return show_spots(get_user_county())
@@ -146,7 +146,8 @@ def get_user_surfspot(user_county, surf_spots):
 
     while True:
         selected_spot = input(
-            "\nEnter the surfspot you would like to explore or press 'E' to exit the program:\n"
+            "\nEnter the surfspot you would like to explore "
+            "or press 'E' to exit the program:\n"
         ).capitalize().strip()
 
         if selected_spot in surf_spots:
@@ -205,7 +206,9 @@ def program_continue_options(user_county, available_counties, surf_spots):
             # Restart from surf spots
             show_spots(user_county)
             get_user_surfspot(user_county, surf_spots)
-            program_continue_options(user_county, available_counties, surf_spots)
+            (program_continue_options
+            (user_county, available_counties, surf_spots)
+            )
             break
 
         elif restart == "E":
@@ -274,6 +277,7 @@ def main(show_welcome_message=True):
         surf_spots = show_spots(user_county)
         get_user_surfspot(user_county, surf_spots)
         program_continue_options(user_county, available_counties, surf_spots)
+
 
 if __name__ == '__main__':
     main()
