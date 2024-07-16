@@ -208,6 +208,7 @@ def program_continue_options(user_county, available_counties, surf_spots):
             break
 
         elif restart == "N":
+            clear_terminal()
             print("\nHave a great surf trip!\n")
             goodbye()
             break

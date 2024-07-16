@@ -75,41 +75,32 @@ ASCII Art is used as a title for the app to improve the user experience and to g
 
 The text in the app are printed slowly to improve user experience and to make sure that the user is not overwhelmed by the text appearing on the screen.
 
-### Welcome Message
+### Welcome Message & Counties
 
 * As soon as the page is loaded, the ASCII Art is displayed and a welcome message is gradually printed out. 
 In the welcome message the purpuse of the app is explained. 
 
-![Welcome](README-files/welcome.png)
-
-### Counties
-
 * After the welcome message a list of available Counties is displayed and the user is promted to choose a County where they want to go surfing and want to explore.
 
-![Spot Details](README-files/counties.png)
+![Welcome](README-files/welcome.png)
 
 ### Surfspots
 
-* After choosing a County a list of available surfspots for that County are displayed.
+* After choosing a County the terminal is cleared and a list of available surfspots for that County are displayed. The user is asked if they want to explore one of these surfspots or if they want to exit the program
 
 ![Surfspots](README-files/surfspots.png)
 
-### Surfspot Details
+### Surfspot Details & Program Continue Options
 
 * After choosing a spot more detailed information is given about the chosen spot.
 
-![Spot Details](README-files/spot-details.png)
-
-### Program Continue Options
-
 * After more detailed info is given about the chosen surfspot, the user can choose between 3 options on how to continue in the app. They can either choose another surfspot in the same County, choose a different County they want to explore or exit the program.
 
-![Options](README-files/continue.png) 
+![Spot Details](README-files/spot-details.png)
 
 ### Goodbye Message
 
-* At the end of the quiz the score is displayed and the user can choose between two option buttons:
-play again or choose a different quiz. 
+* If the user chooses to leave the program a goodbye message is displayed. 
 
 ![Goodbye](README-files/goodbye.png)
 
