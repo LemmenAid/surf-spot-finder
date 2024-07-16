@@ -145,7 +145,7 @@ def get_user_surfspot(user_county, surf_spots):
 
     while True:
         selected_spot = input(
-            "Enter the surfspot you would like to explore or press 'E' to exit the program:\n"
+            "\nEnter the surfspot you would like to explore or press 'E' to exit the program:\n"
         ).capitalize().strip()
 
         if selected_spot in surf_spots:

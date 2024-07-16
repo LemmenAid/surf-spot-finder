@@ -51,7 +51,7 @@ It also made it easier for me to navigate the debugging process more efficiently
 
 **There may be some differences because I drew the flowchart before I started my project.**
 
-![Flow Chart](./readme-images/flowchart.png)
+![Flow Chart](README-files/flowchart.png)
 
 ***
 
@@ -69,7 +69,7 @@ It also made it easier for me to navigate the debugging process more efficiently
 
 ASCII Art is used as a title for the app to improve the user experience and to get the user interested.
 
-![ACSII Art](./readme-images/banner-surfspot.png)
+![ACSII Art](README-files/banner-surfspot.png)
 
 ### Slow Print
 
