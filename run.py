@@ -194,7 +194,7 @@ def program_continue_options(user_county, available_counties, surf_spots):
         restart = input(
             "\nWould you like to choose another spot in this County?\n\n"
             "- Enter 'Y' for yes\n"
-            "- Enter 'N' to exit the program\n"
+            "- Enter 'E' to exit the program\n"
             "- Enter 'C' to explore a different County.\n"
         ).upper().strip()
 
@@ -207,7 +207,7 @@ def program_continue_options(user_county, available_counties, surf_spots):
             program_continue_options(user_county, available_counties, surf_spots)
             break
 
-        elif restart == "N":
+        elif restart == "E":
             clear_terminal()
             print("\nHave a great surf trip!\n")
             goodbye()

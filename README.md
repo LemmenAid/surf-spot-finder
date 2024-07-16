@@ -86,7 +86,7 @@ In the welcome message the purpuse of the app is explained.
 
 ### Surfspots
 
-* After choosing a County the terminal is cleared and a list of available surfspots for that County are displayed. The user is asked if they want to explore one of these surfspots or if they want to exit the program
+* After choosing a County the terminal is cleared and a list of available surfspots for that County are displayed. The user is asked if they want to explore one of these surfspots or if they want to exit the program.
 
 ![Surfspots](README-files/surfspots.png)
 
