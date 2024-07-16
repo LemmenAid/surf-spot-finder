@@ -69,7 +69,7 @@ def get_user_county(available_counties):
     Ask user to choose a County they want to go surfing in.
     returns user_county
     """
-    
+
     counties_text = (
         "Here is a list of the available counties:\n"
     )
@@ -80,7 +80,8 @@ def get_user_county(available_counties):
 
     """Prompt the user to choose a county and validate the input."""
     while True:
-        user_county = input("\nEnter the County you want to explore: ").capitalize().strip()
+        user_county = input("\nEnter the County you want to explore: \n"
+        ).capitalize().strip()
         if user_county in available_counties:
             return user_county
         else:
