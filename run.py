@@ -132,9 +132,6 @@ def show_spots(user_county):
 
 def get_user_surfspot(user_county, surf_spots):
     """Ask user to choose surfspot and display info."""
-    print(
-        "\nAbout which spot would you like some more information?"
-    )
     # Retrieve the values from the selected sheet
     selected_sheet = GSPREAD_CLIENT.open(
            "surf_spot_finder"
@@ -148,7 +145,7 @@ def get_user_surfspot(user_county, surf_spots):
 
     while True:
         selected_spot = input(
-            "Enter the surfspot you would like to explore:\n"
+            "Enter the surfspot you would like to explore or press 'E' to exit the program:\n"
         ).capitalize().strip()
 
         if selected_spot in surf_spots:
@@ -174,7 +171,9 @@ def get_user_surfspot(user_county, surf_spots):
                 f"Best season for consistent "
                 f"clean waves: {surf_spot_season[spot_index]}")
             break
-
+        elif selected_spot == 'E':
+            clear_terminal()
+            break
         else:
             slow_print(
                 f"'{selected_spot}' is not a valid surfspot. "
@@ -194,9 +193,9 @@ def program_continue_options(user_county, available_counties, surf_spots):
     while True:
         restart = input(
             "\nWould you like to choose another spot in this County?\n\n"
-            "- Enter Y for yes\n"
-            "- N for no\n"
-            "- C to choose a different County.\n"
+            "- Enter 'Y' for yes\n"
+            "- Enter 'N' to exit the program\n"
+            "- Enter 'C' to explore a different County.\n"
         ).upper().strip()
 
         if restart == "Y":
@@ -240,6 +239,15 @@ def goodbye():
         justify='center')
     print(title_art)
 
+
+def check_for_exit():
+    """Check if user wants to exit the program."""
+    user_input = input("Press 'E' to exit to the main menu, or any other key to continue: ").capitalize().strip()
+    if user_input == 'E':
+        clear_terminal()
+        main()
+    else:
+        return
 
 def main(show_welcome_message=True):
     """
