@@ -240,15 +240,6 @@ def goodbye():
     print(title_art)
 
 
-def check_for_exit():
-    """Check if user wants to exit the program."""
-    user_input = input("Press 'E' to exit to the main menu, or any other key to continue: ").capitalize().strip()
-    if user_input == 'E':
-        clear_terminal()
-        main()
-    else:
-        return
-
 def main(show_welcome_message=True):
     """
     Run all program functions.
