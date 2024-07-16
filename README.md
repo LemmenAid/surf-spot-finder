@@ -2,7 +2,7 @@
 
 ![Main Mockup](README-files/main-mockup.png)
 
-[View Live Website here.](https://heroku)
+[View Live Website here.](https://surf-spot-finder-820cebbbff26.herokuapp.com/)
 
 [GitHub Repo](https://github.com/LemmenAid/surf-spot-finder)
 
