@@ -161,6 +161,9 @@ def get_user_surfspot(user_county, surf_spots):
             surf_spot_wind = selected_sheet.col_values(6)[1:]
             surf_spot_season = selected_sheet.col_values(7)[1:]
 
+            # clear terminal for better user experience
+            clear_terminal()
+
             # Display the row data in key-value pairs
             slow_print(f"\nHere are the details for "
                        f"{selected_spot}:\n")
