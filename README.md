@@ -1,6 +1,6 @@
 # SURF SPOT FINDER
 
-![Main Mockup](README-files/mockup-main.png)
+![Main Mockup](README-files/main-mockup.png)
 
 [View Live Website here.](https://heroku)
 
@@ -115,7 +115,7 @@ In the welcome message the purpuse of the app is explained.
 ## Libraries and Technologies Used
 
 * [Github](https://github.com/) - Used for hosting the repository.
-* [Heroku](https://heroku.com/) - Used for deploying the live project.n.
+* [Heroku](https://heroku.com/) - Used for deploying the live project.
 * [Gitpod](https://www.gitpod.io/#get-started) - Used for developing the application.
 * [Python](https://www.python.org/) - Used for adding functionality to the application.
 * [Lucidchart](https://lucid.co/) - Used for creating the app flowchart.
