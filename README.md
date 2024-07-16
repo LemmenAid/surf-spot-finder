@@ -137,9 +137,15 @@ The app has been tested by myself and several of my friends and family members f
 
 ### Python - PEP8 Testing
 
-The [CI Python Linter](https://pep8ci.herokuapp.com/#) is used for validation python code. The run.py file was checked and no errors were reported:
+The [CI Python Linter](https://pep8ci.herokuapp.com/#) is used for validation python code. The run.py file was checked and a few errors were reported:
 
 ![alt text](README-files/pep8.png)
+
+<br>
+After fixing the errors, no errors were reported:
+
+![alt text](README-files/pep8-after.png) 
+
 
 ### Input Testing
 
