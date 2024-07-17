@@ -222,7 +222,8 @@ Surf Spot Finder was tested through the Heroku app website on the following brow
 
 ### Project Deployment
 
-_I have used the README of https://github.com/lucia2007/towers-of-hanoi/ to write this part of the deployment section._<br>
+_I have used several different READMEs to write the deployment section of this README.<br> 
+All listed in the credit section below._<br>
 
 The application was deployed to Heroku. In order to deploy, the following steps were taken:
 
@@ -244,8 +245,6 @@ The application was deployed to Heroku. In order to deploy, the following steps 
 11. Once the building of the app is finished you can click the "view" button to be redirected to the newly deployed site.
 
 ### Forking repo on GitHub
-
-_I have taken the following from the Sample README from Code Institute for this deployment section._ <br>
 
 By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
 
