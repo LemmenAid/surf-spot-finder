@@ -190,7 +190,7 @@ After fixing the errors, no errors were reported:
 
 ### Input Testing
 
-During developments User input has been tested frequently to check if various inputs were valid, namely if the validation functions were catching all errors as expected. It was important that the User could easily navigate back to different County and surfspot options, as well as exiting the program. When testing User input I have repeatedly used the same set of input values: "Enter button only", "test" and "123".
+During developments User input has been tested frequently to check if various inputs were valid, namely if the validation functions were catching all errors as expected. It was important that the User could easily navigate back to different Counties and surfspot options, as well as exiting the app. When testing User input I have repeatedly used the same set of input values: "Enter button only", "test" and "123".
 
 All tests were completed in the local terminal as well as in the Heroku terminal.
 
@@ -199,11 +199,11 @@ All tests were completed in the local terminal as well as in the Heroku terminal
 | Choose County              | Yes        | Sorry, {user_county} is not a valid county. |
 | Choose surfspot            | Yes        | {selected_spot} is not a valid surfspot. Please enter one of the available options.|
 | Program continue options   | Yes        | {restart} is not a valid input! Please enter Y, N or C. |
-| Exit                       | Yes        | Goodbye message is displayed |
+| Exit                       | Yes        | Goodbye message is displayed. |
 
 
 ### Browser Testing  
-Surf Spot Finder was tested through the Heroku app website on the following browsers with no issues arising:  
+Surf Spot Finder was tested through the Heroku app website on the following browsers without issues:  
 - Google Chrome (Version 126.0.6478.182)
 - Mozilla Firefox (Version 127.0.2)  
 - Microsoft Edge (Version Version 126.0.2592.102) 
