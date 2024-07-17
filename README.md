@@ -74,13 +74,13 @@ I collected the surf spot information from several websites, which are linked in
 Jump to Credits: [Credits](#credits)
 
 
-After that I began by created the major functions to set up the main flow of the application. From there I started adding more detail and smaller functions. I added validation using while loops, as well as User options using if / elif statements. I constantly tested the validation of the User input to make sure that the User would receive the appropriate feedback and the application's flow would not get interrupted. 
+After that I began by creating the major functions to set up the main flow of the application. From there I started adding more details and smaller functions. I added validation using While loops, as well as User options using if/elif statements. I constantly tested the validation of the User input to make sure that the User would receive the appropriate feedback and the application's flow would not get interrupted.
 
-Once I got the logic up and running I started adding functions that would enhance User experience, like the slow_print and the clear_terminal functions.
+Once I got the logic up and running I started adding functions that would enhance the User experience, like the slow_print and the clear_terminal functions.
 
 ### Google Sheets
 
-The worksheet is accessed by myself as the only Editor but I included a View only link to show the distribution of data for the project. 
+The worksheet is accessed by myself as the only Editor but I included a View only link to show the organization of the prject data. 
 
 [View the Google Sheet here.](https://docs.google.com/spreadsheets/d/1KqClUKt4qPwd4cuOM1b8-stC4H44OkL4tIA6QGkQJs0/edit?usp=sharing)
 
@@ -109,14 +109,14 @@ ASCII Art is used as a title for the app to improve the User experience and to a
 
 ### Slow Print
 
-The text in the app are printed slowly to improve User experience and to make sure that the User is not overwhelmed by the text appearing on the screen.
+A lot of the text in the app is printed slowly to improve User experience and to make sure that the User is not overwhelmed by the text appearing on the screen.
 
 ### Welcome Message & Counties
 
 * As soon as the page is loaded, the ASCII Art is displayed and a welcome message is gradually printed out. 
 In the welcome message the purpuse of the app is explained. 
 
-* After the welcome message a list of available Counties is displayed and the User is promted to choose a County where they want to go surfing and want to explore.
+* After the welcome message a list of available Counties is displayed and the User is promted to choose a County where they want to go surfing and want to explore further.
 
 ![Welcome](README-files/welcome.png)
 

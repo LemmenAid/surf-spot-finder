@@ -71,7 +71,7 @@ def get_user_county(available_counties):
     """
 
     counties_text = (
-        "Here is a list of the available counties:\n"
+        "\nHere is a list of the available counties:\n"
     )
     slow_print(counties_text)
 
