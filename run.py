@@ -198,8 +198,8 @@ def program_continue_options(user_county, available_counties, surf_spots):
     while True:
         restart = input(
             "\nWould you like to choose another spot in this County?\n\n"
-            "- Enter 'Y' for yes\n"
-            "- Enter 'E' to exit the program\n"
+            "- Enter 'Y' for yes.\n"
+            "- Enter 'E' to exit the program.\n"
             "- Enter 'C' to explore a different County.\n"
         ).strip().upper()
 
