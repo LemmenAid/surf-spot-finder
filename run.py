@@ -228,7 +228,7 @@ def program_continue_options(user_county, available_counties, surf_spots):
 
         else:
             # Direct feedback without raising an exception
-            print(f"{restart} is an invalid input! Please enter Y, N or C.")
+            print(f"{restart} is not a valid input! Please enter Y, N or C.")
             continue
 
 

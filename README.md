@@ -40,9 +40,12 @@ The Surf Spot Finder is a user-friendly command-line interface (CLI) application
 
 ### User Stories
 
-1. As a first time user, I want to easily understand the main purpose of the app. 
-2. As a new user, I want to easily navigate the app. 
-3. As a returning user I want to find information on different surfspots in Ireland.
+1. As a first time User, I want to easily understand the main purpose of the app. 
+2. As a new User, I want to easily navigate the app. 
+3. As a User, I want to be able to explore surfspots in Ireland per County.
+4. As a User I want to be able to get more detailed information on different surfspots in Ireland.
+5. As a User, I want to be able to explore several surfspots in the same County.
+6. As a User, looking for surfspot options I want to be able to switch between different Counties. 
 
 ***
 
@@ -111,6 +114,7 @@ In the welcome message the purpuse of the app is explained.
 
 * In the future, I could implement the user name usage and favorite surf spots tracking functionality.
 * In the future I would like to add more information to the database, and cover all (coastal) Counties.
+* Through further learning I would like to use a weather forcast API to add information to the surf spot details with current weather conditions.
 
 *** 
 
@@ -120,24 +124,27 @@ In the welcome message the purpuse of the app is explained.
 * [Heroku](https://heroku.com/) - Used for deploying the live project.
 * [Gitpod](https://www.gitpod.io/#get-started) - Used for developing the application.
 * [Python](https://www.python.org/) - Used for adding functionality to the application.
+* [Google Sheets](https://docs.google.com/spreadsheets/) - used for storing, editing and saving Surf Spot Finder database.
+* [Google Cloud Platform](https://cloud.google.com/) - used to provide the APIs for connecting the data sheets with the Python code.
 * [Lucidchart](https://lucid.co/) - Used for creating the app flowchart.
 * [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used for validation python code.
 
 ### Python Libraries
 
+* [gspread](https://docs.gspread.org/en/v6.0.0/) - used to add, remove and manipulate data in the connected Google Sheets worksheets.
+* [google.oauth.service_account](https://google-auth.readthedocs.io/en/master/reference/google.oauth2.service_account.html) - used for the authentication needed to access the Google APIs to connect the Service Account with the Credentials function. A CREDS.json file was generated with the details needed for the API to access the Google account which holds the Google Sheets worksheet containing the applications data. When deploying to Heroku, this information is then stored in the config var section to ensure the application will run.
 * [Pyfiglet](https://pypi.org/project/pyfiglet/) - Used for the opening title and Goodbye message.
 * [Time](https://docs.python.org/3/library/time.html) - Used for the slow print functionality and for delaying print statements.
 * [Sys](https://docs.python.org/3/library/sys.html) - Used to provide access to some variables used or maintained by the interpreter.
-* [Random](https://docs.python.org/3/library/random.html) - Used within the slow print functionality.
-* [OS](https://docs.python.org/3/library/os.html) - Used to clear the screen in the terminal.
+* [Random](https://docs.python.org/3/library/random.html) - Used to add the slow_print functionality.
+* [OS](https://docs.python.org/3/library/os.html) - Used to add the clear_terminal function for a neater flow of the program.
 
 ***
 
 ## Testing
 
-The app has been tested by myself and several of my friends and family members for accessibility, functionality, responsiveness, performance and visual appeal.
 
-### Python - PEP8 Testing
+### Python Validation
 
 The [CI Python Linter](https://pep8ci.herokuapp.com/#) is used for validation python code. The run.py file was checked and a few errors were reported:
 
@@ -151,9 +158,29 @@ After fixing the errors, no errors were reported:
 
 ### Input Testing
 
-During testing I frequently checked if all the inputs were valid, namely if my validation functions were catching all errors and exceptions.
+During developments user input has been tested frequently to check if various inputs were valid, namely if the validation functions were catching all errors as expected. It was important that the user could easily navigate back to different County and surfspot options, as well as exiting the program. When testing user input I have repeatedly used the same set of input values: "Enter button only", "test" and "123".
 
-All of the above tests were completed in my local terminal and also in the Heroku terminal.
+All tests were completed in the local terminal as well as in the Heroku terminal.
+
+| Feature                    | Tested?    | User Feedback Provided      |
+|----------------------------|------------|-----------------------------|
+| Choose County              | Yes        | Sorry, {user_county} is not a valid county. |
+| Choose surfspot            | Yes        | {selected_spot} is not a valid surfspot. Please enter one of the available options.|
+| Program continue options   | Yes        | {restart} is not a valid input! Please enter Y, N or C. |
+| Exit                       | Yes        | Goodbye message is displayed |
+
+
+### Browser Testing  
+Surf Spot Finder was tested through the Heroku app website on the following browsers with no issues arising:  
+- Google Chrome (Version 126.0.6478.182)
+- Mozilla Firefox (Version 127.0.2)  
+- Microsoft Edge (Version Version 126.0.2592.102) 
+
+***
+
+## Solved Bugs
+
+
 
 ***
 
@@ -161,24 +188,30 @@ All of the above tests were completed in my local terminal and also in the Herok
 
 ### Project Deployment
 
-I have taken this part from the README of https://github.com/lucia2007/towers-of-hanoi/ <br>
+_I have used the README of https://github.com/lucia2007/towers-of-hanoi/ to write this part of the deployment section._<br>
 
 The application was deployed to Heroku. In order to deploy, the following steps were taken:
 
 1. If you have an account, login to Heroku. Otherwise create a new account.
-2. Once signed in, click the button "New" in the top right corner, below the header and choose "Create new app".
+2. Once signed in, click the "New" button in the top right corner, below the header and choose "Create new app".
 3. Choose a unique name for the application and select your region. When done, click "Create app".
-4. This brings you to the "Deploy" tab. From here, click the "Settings" tab and scroll down to the "Config Vars" section and click on "Reveal Config Vars". In the KEY input field, enter "PORT" and in the VALUE input field, enter "8000". After that, click the "Add" button on the right.
-5. Afterwards, scroll down to the "Buildpacks" section of the settings page and click the button "Add buildpack".
+4. This brings you to the "Deploy" tab. From here, click the "Settings" tab and scroll down to the "Config Vars" section and click on "Reveal Config Vars". 
+
+- In the KEY input field, enter "PORT" and in the VALUE input field, enter "8000". After that, click the "Add" button on the right.
+
+- In KEY enter "CREDS", in VALUE, paste in the text content of your CREDS.json file. 
+
+5. In the Settings tab, in the Buildpack section, click the button "Add Buildpack".
 6. First add "Python" package and then "node.js". 
-7. If you exchanged the order of the packages, just drag the Python package above.
-8. Scroll back to the top of the page and choose the "Deploy" tab. Then choose "GitHub" as Deployment method.
-9. Go to "Connect to GiHub" section, search for the repository and then click "Connect".
-10. In the "Automatic Deploys" section, choose your preferred method for deployment. At first, I used the manual deployment option, and later I changed it to automatic deploys. Afterwards, click "Deploy Branch".
+7. If you exchanged the order of the packages: the Python buildpack must be above the NodeJS buildpack. You can drag the Python buildback to the top.
+8. Scroll back to the top of the page and go to the "Deploy" tab. Choose "GitHub" as your Deployment method.
+9. Go to "Connect to GiHub" section, search for the repository name and click "Connect".
+10. In the "Automatic Deploys" section, choose your preferred method for deployment. I chose the 'automatic' option. Click "Deploy Branch".
+11. Once the building of the app is finished you can click the "view" button to be redirected to the newly deployed site.
 
 ### Forking repo on GitHub
 
-I have taken the following from the Sample README from Code Institute for this deployment section. <br>
+_I have taken the following from the Sample README from Code Institute for this deployment section._ <br>
 
 By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
 
