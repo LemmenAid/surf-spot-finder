@@ -84,7 +84,7 @@ The worksheet is accessed by myself as the only Editor but I included a View onl
 
 [View the Google Sheet here.](https://docs.google.com/spreadsheets/d/1KqClUKt4qPwd4cuOM1b8-stC4H44OkL4tIA6QGkQJs0/edit?usp=sharing)
 
-google sheet screenshot
+![Google-sheet](README-files/google-sheet.png)
 
 
 ***
