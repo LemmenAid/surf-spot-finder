@@ -67,22 +67,24 @@ It also made it easier for me to navigate the debugging process more efficiently
 
 ### Project SetUp
 
-With this being my first Python project, my main goal was to create an application that displayed data successfully from Google Sheets worksheets to the user based on their input. 
+With this being my first Python project, my main goal was to create an application that displayed data successfully from Google Sheets worksheets to the User based on their input. 
 
 I collected the surf spot information from several websites, which are linked in the Credits section of this ReadMe. I organized the information in a Google Spreadsheet.
 
 Jump to Credits: [Credits](#credits)
 
 
-After that I began by created the major functions to set up the main flow of the application. From there I started adding more detail and smaller functions. I added validation using while loops, as well as user options using if / elif statements. I constantly tested the validation of the user input to make sure that the user would receive the appropriate feedback and the application's flow would not get interrupted. 
+After that I began by created the major functions to set up the main flow of the application. From there I started adding more detail and smaller functions. I added validation using while loops, as well as User options using if / elif statements. I constantly tested the validation of the User input to make sure that the User would receive the appropriate feedback and the application's flow would not get interrupted. 
 
-Once I got the logic up and running I started adding functions that would enhance user experience, like the slow_print and the clear_terminal functions.
+Once I got the logic up and running I started adding functions that would enhance User experience, like the slow_print and the clear_terminal functions.
 
 ### Google Sheets
 
 The worksheet is accessed by myself as the only Editor but I included a View only link to show the distribution of data for the project. 
 
 [View the Google Sheet here.](https://docs.google.com/spreadsheets/d/1KqClUKt4qPwd4cuOM1b8-stC4H44OkL4tIA6QGkQJs0/edit?usp=sharing)
+
+The Google Spreadsheet contains a sheet for each County, where the information for the surf spots in that County are stored. This way it would be easy to add information on surf spots and Counties in the furture.  
 
 ![Google-sheet](README-files/google-sheet.png)
 
@@ -101,26 +103,26 @@ The worksheet is accessed by myself as the only Editor but I included a View onl
 
 ### ASCII Art
 
-ASCII Art is used as a title for the app to improve the user experience and to get the user interested.
+ASCII Art is used as a title for the app to improve the User experience and to add some visual interest.
 
 ![ACSII Art](README-files/banner-surfspot.png)
 
 ### Slow Print
 
-The text in the app are printed slowly to improve user experience and to make sure that the user is not overwhelmed by the text appearing on the screen.
+The text in the app are printed slowly to improve User experience and to make sure that the User is not overwhelmed by the text appearing on the screen.
 
 ### Welcome Message & Counties
 
 * As soon as the page is loaded, the ASCII Art is displayed and a welcome message is gradually printed out. 
 In the welcome message the purpuse of the app is explained. 
 
-* After the welcome message a list of available Counties is displayed and the user is promted to choose a County where they want to go surfing and want to explore.
+* After the welcome message a list of available Counties is displayed and the User is promted to choose a County where they want to go surfing and want to explore.
 
 ![Welcome](README-files/welcome.png)
 
 ### Surfspots
 
-* After choosing a County the terminal is cleared and a list of available surfspots for that County are displayed. The user is asked if they want to explore one of these surfspots or if they want to exit the program.
+* After choosing a County the terminal is cleared and a list of available surfspots for that County are displayed. The User is asked if they want to explore one of these surfspots or if they want to exit the program.
 
 ![Surfspots](README-files/surfspots.png)
 
@@ -128,23 +130,23 @@ In the welcome message the purpuse of the app is explained.
 
 * After choosing a spot more detailed information is given about the chosen spot.
 
-* After more detailed info is given about the chosen surfspot, the user can choose between 3 options on how to continue in the app. They can either choose another surfspot in the same County, choose a different County they want to explore or exit the program.
+* After more detailed info is given about the chosen surfspot, the User can choose between 3 options on how to continue in the app. They can either choose another surfspot in the same County, choose a different County they want to explore or exit the program.
 
 ![Spot Details](README-files/spot-details.png)
 
 ### Goodbye Message
 
-* If the user chooses to leave the program a goodbye message is displayed. 
+* If the User chooses to leave the program a goodbye message is displayed. 
 
 ![Goodbye](README-files/goodbye.png)
 
 
 ### Future Implementations
 
-* In the future, I could implement the user name usage and favorite surf spots tracking functionality.
+* In the future, I could implement the User name and favorite surf spots tracking functionality.
 * In the future I would like to add more information to the database, and cover all (coastal) Counties.
 * Through further learning I would like to use a weather forcast API to add information to the surf spot details with current weather conditions.
-* I would have loved to add a feature that user can store their favorite surf spots. After finishing the course I would like to come back to this project and create this feature. 
+* I would have loved to add a feature that User can store their favorite surf spots. After finishing the course I would like to come back to this project and create this feature. 
 
 *** 
 
@@ -178,17 +180,17 @@ In the welcome message the purpuse of the app is explained.
 
 The [CI Python Linter](https://pep8ci.herokuapp.com/#) is used for validation python code. The run.py file was checked and a few errors were reported:
 
-![alt text](README-files/pep8.png)
+![pep8](README-files/pep8.png)
 
 <br>
 After fixing the errors, no errors were reported:
 
-![alt text](README-files/pep8-after.png) 
+![pep-8-after](README-files/pep8-after.png) 
 
 
 ### Input Testing
 
-During developments user input has been tested frequently to check if various inputs were valid, namely if the validation functions were catching all errors as expected. It was important that the user could easily navigate back to different County and surfspot options, as well as exiting the program. When testing user input I have repeatedly used the same set of input values: "Enter button only", "test" and "123".
+During developments User input has been tested frequently to check if various inputs were valid, namely if the validation functions were catching all errors as expected. It was important that the User could easily navigate back to different County and surfspot options, as well as exiting the program. When testing User input I have repeatedly used the same set of input values: "Enter button only", "test" and "123".
 
 All tests were completed in the local terminal as well as in the Heroku terminal.
 
@@ -210,7 +212,9 @@ Surf Spot Finder was tested through the Heroku app website on the following brow
 
 ## Solved Bugs
 
+* One bug that came up during testing was quite interesting and was only discovered by accident. The correct name for a County was entered, but accidentally had a blank space in front of it, the input was returned as not valid. After looking into this, I found that this could be solved by calling the .strip() function before calling the .capitalize() function on the User input:
 
+ ![blank space bug](README-files/blank-bug.png)
 
 ***
 
