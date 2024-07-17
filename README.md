@@ -26,11 +26,12 @@ The Surf Spot Finder is a user-friendly command-line interface (CLI) application
 ## Index – Table of Contents
 
 * [User Experience (UX)](#user-experience)
-* [Logic Flow](#logic-flow)
+* [Creating Process](#creating-process)
 * [Design](#design)
 * [Features](#features)
 * [Libraries and Technologies Used](#libraries-and-technologies-used)
 * [Testing](#testing)
+* [Solved Bugs](#solved-bugs)
 * [Deployment](#deployment)
 * [Credits](#credits)
 
@@ -49,7 +50,13 @@ The Surf Spot Finder is a user-friendly command-line interface (CLI) application
 
 ***
 
-## Logic Flow
+## Creating Process
+
+I wanted to create something for my third portfolio project that could have a real-world application. I decided to create an app that would help surfers to explore different surf spots in Ireland per County. Having moved to Ireland myself, I was very eager to surf as many different spots as I could. The amount of surf spots in Ireland however is endless. Having an application that can give some structure and information would be very helpful to (new) surfers, so the Surf Spot Finder was created from this idea. 
+
+I did not wanted to overly complicate my project, so I could focus on developing my Python skills, understanding the logic and write code with using minimal resources. To get me started the Love Sandwiches walkthrough project was a great help, especially because I wanted to practice using Google Sheets and decided to store the information used for the Surf Spot Finder in a spreadsheet. It was a steep learning curve that I was faced with during the making of this app, but the further I got into the project the more I found myself being able to figure parts of the code out by myself, which gave me a great confident boost.
+
+### Logic Flow
 Starting to design my project with a flowchart has been extremely helpful. It gave me an overview of the logic I needed to follow during the writing of the app. Creating this flowchart has helped me to break up the logic within functions, making the code more modular and easier to follow.
 
 It also made it easier for me to navigate the debugging process more efficiently. The visual nature of the diagrams has enabled me to spot potential issues and trace the flow of execution more effectively, ultimately leading to a smoother development experience.
@@ -57,6 +64,10 @@ It also made it easier for me to navigate the debugging process more efficiently
 **There may be some differences because I drew the flowchart before I started my project.**
 
 ![Flow Chart](README-files/flowchart.png)
+
+### Google API SetUp
+
+###
 
 ***
 
@@ -115,6 +126,7 @@ In the welcome message the purpuse of the app is explained.
 * In the future, I could implement the user name usage and favorite surf spots tracking functionality.
 * In the future I would like to add more information to the database, and cover all (coastal) Counties.
 * Through further learning I would like to use a weather forcast API to add information to the surf spot details with current weather conditions.
+* I would have loved to add a feature that user can store their favorite surf spots. After finishing the course I would like to come back to this project and create this feature. 
 
 *** 
 
