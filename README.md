@@ -4,6 +4,8 @@
 
 [View Live Website here.](https://surf-spot-finder-820cebbbff26.herokuapp.com/)
 
+[View the Google Sheet here.](https://docs.google.com/spreadsheets/d/1KqClUKt4qPwd4cuOM1b8-stC4H44OkL4tIA6QGkQJs0/edit?usp=sharing)
+
 [GitHub Repo](https://github.com/LemmenAid/surf-spot-finder)
 
 *** 
