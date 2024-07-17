@@ -216,7 +216,8 @@ def program_continue_options(user_county, available_counties, surf_spots):
 
         elif restart == "E":
             clear_terminal()
-            print("\nHave a great surf trip!\n")
+            print("\nThank you for using the Surf Spot Finder! "
+                  "Have a great surf trip =) \n")
             goodbye()
             break
 
