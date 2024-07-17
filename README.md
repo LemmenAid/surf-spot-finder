@@ -65,9 +65,20 @@ It also made it easier for me to navigate the debugging process more efficiently
 
 ![Flow Chart](README-files/flowchart.png)
 
-### Google API SetUp
+### Project SetUp
 
-###
+With this being my first Python project, my main goal was to create an application that displayed data successfully from Google Sheets worksheets to the user based on their input. 
+
+I began by created the major functions to set up the main flow of the application. From there I started adding more detail and smaller functions. I constantly validated the functionality to make sure that there were no errors.
+
+### Google Sheets
+
+The worksheet is accessed by myself as the only Editor but I included a View only link to show the distribution of data for the project. 
+
+[View the Google Sheet here.](https://docs.google.com/spreadsheets/d/1KqClUKt4qPwd4cuOM1b8-stC4H44OkL4tIA6QGkQJs0/edit?usp=sharing)
+
+google sheet screenshot
+
 
 ***
 
