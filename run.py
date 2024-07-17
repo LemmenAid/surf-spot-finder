@@ -58,7 +58,9 @@ def welcome():
 def get_counties():
     """
     Retrieve list of counties from google sheet and print them.
-    returns available_counties.
+
+    Returns:
+        List of str - List of county names retrieved from database.
     """
     available_counties = [worksheet.title for worksheet in SHEET]
     return available_counties
@@ -67,7 +69,12 @@ def get_counties():
 def get_user_county(available_counties):
     """
     Ask user to choose a County they want to go surfing in.
-    returns user_county
+
+    Args:
+        available_counties: List of county names retrieved from database.
+
+    Returns:
+        str - The County chosen by the user.
     """
 
     counties_text = (
@@ -92,7 +99,12 @@ def get_user_county(available_counties):
 def show_spots(user_county):
     """
     Display the surf spots based on the chosen county by user.
-    returns surf_spots.
+
+    Args:
+        user_county: str - County chosen by User.
+
+    Returns:
+        List of str - List of surfspots for chosen County.
     """
     # retrieve the sheet ID of the selected County
     selected_sheet_id = (
@@ -132,7 +144,16 @@ def show_spots(user_county):
 
 
 def get_user_surfspot(user_county, surf_spots):
-    """Ask user to choose surfspot and display info."""
+    """
+    Ask user to choose surfspot and display info.
+
+    Args:
+        user_county: str - County chosen by User.
+        surf_spots: str - List of surfspots for chosen County.
+
+    Returns:
+        Prints details for chosen surf spot to the terminal.
+    """
     # Retrieve the values from the selected sheet
     selected_sheet = GSPREAD_CLIENT.open(
            "surf_spot_finder"
@@ -190,6 +211,11 @@ def get_user_surfspot(user_county, surf_spots):
 def program_continue_options(user_county, available_counties, surf_spots):
     """
     Ask user how they want to continue in program.
+
+    Args:
+        user_county: str - County chosen by User.
+        available_counties: List of county names retrieved from database.
+        surf_spots: str - List of surfspots for chosen County.
     """
     current_state = {
         'user_county': user_county
@@ -253,6 +279,9 @@ def main(show_welcome_message=True):
     """
     Run all program functions.
     Program restarts without welcome message.
+
+    Args:
+        show_welcome_message: Boolean - to show welcome message or not.
     """
     if show_welcome_message:
         # Welcome message and banner
