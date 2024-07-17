@@ -81,7 +81,7 @@ def get_user_county(available_counties):
     """Prompt the user to choose a county and validate the input."""
     while True:
         user_county = input("\nEnter the County you want to explore: \n"
-                            ).capitalize().strip()
+                            ).strip().capitalize()
         if user_county in available_counties:
             return user_county
         else:
@@ -148,7 +148,7 @@ def get_user_surfspot(user_county, surf_spots):
         selected_spot = input(
             "\nEnter the surfspot you would like to explore "
             "or press 'E' to exit the program:\n"
-        ).capitalize().strip()
+        ).strip().capitalize()
 
         if selected_spot in surf_spots:
             # Find the index of the selected surf spot
@@ -201,7 +201,7 @@ def program_continue_options(user_county, available_counties, surf_spots):
             "- Enter 'Y' for yes\n"
             "- Enter 'E' to exit the program\n"
             "- Enter 'C' to explore a different County.\n"
-        ).upper().strip()
+        ).strip().upper()
 
         if restart == "Y":
             user_county = current_state['user_county']

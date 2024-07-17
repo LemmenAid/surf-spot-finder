@@ -69,7 +69,14 @@ It also made it easier for me to navigate the debugging process more efficiently
 
 With this being my first Python project, my main goal was to create an application that displayed data successfully from Google Sheets worksheets to the user based on their input. 
 
-I began by created the major functions to set up the main flow of the application. From there I started adding more detail and smaller functions. I constantly validated the functionality to make sure that there were no errors.
+I collected the surf spot information from several websites, which are linked in the Credits section of this ReadMe. I organized the information in a Google Spreadsheet.
+
+Jump to Credits: [Credits](#credits)
+
+
+After that I began by created the major functions to set up the main flow of the application. From there I started adding more detail and smaller functions. I added validation using while loops, as well as user options using if / elif statements. I constantly tested the validation of the user input to make sure that the user would receive the appropriate feedback and the application's flow would not get interrupted. 
+
+Once I got the logic up and running I started adding functions that would enhance user experience, like the slow_print and the clear_terminal functions.
 
 ### Google Sheets
 
