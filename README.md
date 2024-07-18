@@ -14,12 +14,12 @@
 
 _Surf Spot Finder is a CLI application for my third portfolio project with [Code Institute](https://codeinstitute.net/ie/)._
 
-The Surf Spot Finder is a CLI application that helps users find the best surf spots in different counties in Ireland. Users can choose from a list of available counties in Ireland to view the surf spots in that county. After selecting a county, the application will display a list of surf spots in that county.
+The Surf Spot Finder is a CLI application that helps users find the best surf spots in different Counties in Ireland. Users can choose from a list of available Counties in Ireland to view the surf spots in that County. After selecting a County, the application will display a list of surf spots in that County.
 Users can then choose a specific surf spot from the list to view more detailed information about that spot.
 
 ## Project Purpose
 
-The Surf Spot Finder is a user-friendly command-line interface (CLI) application designed to help surf enthusiasts in Ireland discover the best surf spots. By providing a comprehensive database of surf spots across various counties, the application aims to enhance the surfing experience for both locals and visitors alike. With its intuitive features, the Surf Spot Finder simplifies the process of finding suitable surf spots, making it easier for users to plan their surfing adventures and make the most of Ireland's diverse coastal regions.
+The Surf Spot Finder is a user-friendly command-line interface (CLI) application designed to help surf enthusiasts in Ireland discover the best surf spots. By providing a comprehensive database of surf spots across various Counties, the application aims to enhance the surfing experience for both locals and visitors alike. With its intuitive features, the Surf Spot Finder simplifies the process of finding suitable surf spots, making it easier for users to plan their surfing adventures and make the most of Ireland's diverse coastal regions.
 
 ***
 
@@ -52,12 +52,12 @@ The Surf Spot Finder is a user-friendly command-line interface (CLI) application
 
 ## Creating Process
 
-I wanted to create something for my third portfolio project that could have a real-world application. I decided to create an app that would help surfers to explore different surf spots in Ireland per County. Having moved to Ireland myself, I was very eager to surf as many different spots as I could. The amount of surf spots in Ireland however is endless. Having an application that can give some structure and information would be very helpful to (new) surfers, so the Surf Spot Finder was created from this idea. 
+I wanted to create something for my third portfolio project that has a real-world application. I decided to create an app that would help surfers to explore different surf spots in Ireland. Having moved to Ireland myself, I was very eager to surf as many different spots as I could. The amount of surf spots in Ireland however is endless. Having an application that can give some structure and information would be very helpful to (new) surfers, so the Surf Spot Finder was created from this idea. 
 
-I did not wanted to overly complicate my project, so I could focus on developing my Python skills, understanding the logic and write code with using minimal resources. To get me started the Love Sandwiches walkthrough project was a great help, especially because I wanted to practice using Google Sheets and decided to store the information used for the Surf Spot Finder in a spreadsheet. It was a steep learning curve that I was faced with during the making of this app, but the further I got into the project the more I found myself being able to figure parts of the code out by myself, which gave me a great confident boost.
+Since this was my first time working with Python I did not wanted to overly complicate my project. I wanted to focus on developing my Python skills, understanding the logic. To get me started the Love Sandwiches walkthrough project was a great help, especially because I wanted to practice using Google Sheets and decided to store the information used for the Surf Spot Finder in a spreadsheet. It was a steep learning curve that I was faced with during the making of this app, but the further I got into the project the more I found myself being able to figure parts of the code out by myself, which gave me a great confident boost. 
 
 ### Logic Flow
-Starting to design my project with a flowchart has been extremely helpful. It gave me an overview of the logic I needed to follow during the writing of the app. Creating this flowchart has helped me to break up the logic within functions, making the code more modular and easier to follow.
+Starting to design my project with a flowchart was extremely helpful. It gave me an overview of the logic I needed to follow during the writing of the app. Creating this flowchart has helped me to break up the logic within functions, making the code more modular and easier to follow.
 
 It also made it easier for me to navigate the debugging process more efficiently. The visual nature of the diagrams has enabled me to spot potential issues and trace the flow of execution more effectively, ultimately leading to a smoother development experience.
 
@@ -72,7 +72,6 @@ With this being my first Python project, my main goal was to create an applicati
 I collected the surf spot information from several websites, which are linked in the Credits section of this ReadMe. I organized the information in a Google Spreadsheet.
 
 Jump to Credits: [Credits](#credits)
-
 
 After that I began by creating the major functions to set up the main flow of the application. From there I started adding more details and smaller functions. I added validation using While loops, as well as User options using if/elif statements. I constantly tested the validation of the User input to make sure that the User would receive the appropriate feedback and the application's flow would not get interrupted.
 
@@ -103,26 +102,26 @@ The Google Spreadsheet contains a sheet for each County, where the information f
 
 ### ASCII Art
 
-ASCII Art is used as a title for the app to improve the User experience and to add some visual interest.
+ASCII Art is used as a title for the app to give the Surf Spot Finder a visual identity and to make it visually appealing.
 
 ![ACSII Art](README-files/banner-surfspot.png)
 
 ### Slow Print
 
-A lot of the text in the app is printed slowly to improve User experience and to make sure that the User is not overwhelmed by the text appearing on the screen.
+The majority of the text in the app is printed slowly to improve User experience and to make sure that the User is not overwhelmed by the text appearing on the screen.
 
 ### Welcome Message & Counties
 
 * As soon as the page is loaded, the ASCII Art is displayed and a welcome message is gradually printed out. 
 In the welcome message the purpuse of the app is explained. 
 
-* After the welcome message a list of available Counties is displayed and the User is promted to choose a County where they want to go surfing and want to explore further.
+* After the welcome message a list of available Counties is displayed and the User is promted to choose a County where they want to go surfing.
 
 ![Welcome](README-files/welcome.png)
 
 ### Surfspots
 
-* After choosing a County the terminal is cleared and a list of available surfspots for that County are displayed. The User is asked if they want to explore one of these surfspots or if they want to exit the program.
+* After choosing a County the terminal is cleared and a list of available surfspots for that County is displayed. The User is asked if they want to explore one of these surfspots further or if they want to exit the program.
 
 ![Surfspots](README-files/surfspots.png)
 
@@ -130,7 +129,7 @@ In the welcome message the purpuse of the app is explained.
 
 * After choosing a spot more detailed information is given about the chosen spot.
 
-* After more detailed info is given about the chosen surfspot, the User can choose between 3 options on how to continue in the app. They can either choose another surfspot in the same County, choose a different County they want to explore or exit the program.
+* After the more detailed surfspot information is displayed, the User can choose between 3 options on how to continue in the app. They can either choose to explore another surfspot in the same County, choose a different County they want to explore or exit the program.
 
 ![Spot Details](README-files/spot-details.png)
 
@@ -143,7 +142,7 @@ In the welcome message the purpuse of the app is explained.
 
 ### Future Implementations
 
-* In the future, I could implement the User name and favorite surf spots tracking functionality.
+* In the future, the User name and favorite surf spots tracking functionality could be implemented.
 * In the future I would like to add more information to the database, and cover all (coastal) Counties.
 * Through further learning I would like to use a weather forcast API to add information to the surf spot details with current weather conditions.
 * I would have loved to add a feature that User can store their favorite surf spots. After finishing the course I would like to come back to this project and create this feature. 

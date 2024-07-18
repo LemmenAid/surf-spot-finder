@@ -188,7 +188,7 @@ def get_user_surfspot(user_county, surf_spots):
             # Display the row data in key-value pairs
             slow_print(f"\nHere are the details for "
                        f"{selected_spot}:\n")
-            slow_print(f"Surf Level: {surf_spot_levels[spot_index]}")
+            slow_print(f"Required surf Level: {surf_spot_levels[spot_index]}")
             slow_print(f"Type of spot: {surf_spot_types[spot_index]} break")
             slow_print(f"Crowd Level: {surf_spot_crowds[spot_index]}")
             slow_print(f"Accessibility: {surf_spot_accessibility[spot_index]}")
@@ -225,8 +225,8 @@ def program_continue_options(user_county, available_counties, surf_spots):
         restart = input(
             "\nWould you like to choose another spot in this County?\n\n"
             "- Enter 'Y' for yes.\n"
-            "- Enter 'E' to exit the program.\n"
             "- Enter 'C' to explore a different County.\n"
+            "- Enter 'E' to exit the program.\n"
         ).strip().upper()
 
         if restart == "Y":
